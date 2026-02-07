@@ -1,1 +1,128 @@
+"""
+=========================================
+DSA - ARRAYS (Python)
+=========================================
 
+An array is a data structure used to store multiple values in a single variable.
+
+In Python, we use a list as an array.
+
+Example:
+my_array = [7, 12, 9, 4, 11]
+
+Each element has an index:
+Index:   0   1   2   3   4
+Value:   7  12   9   4  11
+
+Python uses ZERO-BASED indexing.
+So:
+my_array[0] → 7
+my_array[3] → 4
+"""
+
+# =========================================
+# 1️⃣ CREATING AND PRINTING AN ARRAY
+# =========================================
+
+my_array = [7, 12, 9, 4, 11]
+print("Original Array:", my_array)
+
+
+# =========================================
+# 2️⃣ ACCESSING ELEMENTS BY INDEX
+# =========================================
+
+print("First element:", my_array[0])   # 7
+print("Fourth element:", my_array[3])  # 4
+
+
+# =========================================
+# 3️⃣ ALGORITHM: FIND THE LOWEST VALUE
+# =========================================
+
+"""
+Algorithm (Pseudocode):
+
+1. Set minVal = first element of the array
+2. Loop through each element in the array
+3. If current element < minVal, update minVal
+4. After loop ends, minVal contains the lowest value
+"""
+
+minVal = my_array[0]   # Step 1
+
+for i in my_array:     # Step 2
+    if i < minVal:     # Step 3
+        minVal = i
+
+print("Lowest value:", minVal)  # Step 4
+
+
+# =========================================
+# 4️⃣ SAME ALGORITHM USING INDEX LOOP
+# =========================================
+
+minVal = my_array[0]
+
+for i in range(1, len(my_array)):
+    if my_array[i] < minVal:
+        minVal = my_array[i]
+
+print("Lowest value (using index loop):", minVal)
+
+
+# =========================================
+# 5️⃣ TIME COMPLEXITY
+# =========================================
+
+"""
+Time Complexity: O(n)
+
+Reason:
+The algorithm checks every element once.
+If there are n elements, the loop runs n times.
+So the time complexity is Linear → O(n)
+"""
+
+
+# =========================================
+# 6️⃣ COMMON ERRORS (FIXED)
+# =========================================
+
+"""
+❌ Wrong:
+print("original array:", my my_array)
+
+✅ Correct:
+print("original array:", my_array)
+
+--------------------------------------
+
+❌ Wrong:
+for i in range(1, len(my_array):
+
+✅ Correct:
+for i in range(1, len(my_array)):
+
+--------------------------------------
+
+❌ Wrong:
+print("Lowest value:", minVal))
+
+✅ Correct:
+print("Lowest value:", minVal)
+"""
+
+
+# =========================================
+# 7️⃣ PRACTICE QUESTION
+# =========================================
+
+"""
+Q: How do we print value 7 from this array?
+
+my_array = [7, 12, 9, 4, 11]
+
+A:
+print(my_array[0])
+"""
