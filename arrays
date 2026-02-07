@@ -1,6 +1,6 @@
 """
 =========================================
-DSA - ARRAYS (Python)
+DSA - ARRAYS (Complete Beginner Guide)
 =========================================
 
 An array is a data structure used to store multiple values in a single variable.
@@ -10,12 +10,16 @@ In Python, we use a list as an array.
 Example:
 my_array = [7, 12, 9, 4, 11]
 
-Each element has an index:
+-----------------------------------------
+ARRAY INDEXING
+-----------------------------------------
+
+Each element has an index (position).
+Python uses ZERO-BASED indexing.
+
 Index:   0   1   2   3   4
 Value:   7  12   9   4  11
 
-Python uses ZERO-BASED indexing.
-So:
 my_array[0] → 7
 my_array[3] → 4
 """
@@ -25,23 +29,32 @@ my_array[3] → 4
 # =========================================
 
 my_array = [7, 12, 9, 4, 11]
-print("Original Array:", my_array)
+print("Original array:", my_array)
 
 
 # =========================================
-# 2️⃣ ACCESSING ELEMENTS BY INDEX
+# 2️⃣ ACCESSING ELEMENTS
 # =========================================
 
-print("First element:", my_array[0])   # 7
-print("Fourth element:", my_array[3])  # 4
+print("First element:", my_array[0])
+print("Fourth element:", my_array[3])
 
 
 # =========================================
-# 3️⃣ ALGORITHM: FIND THE LOWEST VALUE
+# 3️⃣ LOOPING THROUGH AN ARRAY
+# =========================================
+
+print("All elements:")
+for i in my_array:
+    print(i)
+
+
+# =========================================
+# 4️⃣ ALGORITHM: FIND THE LOWEST VALUE
 # =========================================
 
 """
-Algorithm (Pseudocode):
+PSEUDOCODE:
 
 1. Set minVal = first element of the array
 2. Loop through each element in the array
@@ -49,17 +62,17 @@ Algorithm (Pseudocode):
 4. After loop ends, minVal contains the lowest value
 """
 
-minVal = my_array[0]   # Step 1
+minVal = my_array[0]
 
-for i in my_array:     # Step 2
-    if i < minVal:     # Step 3
+for i in my_array:
+    if i < minVal:
         minVal = i
 
-print("Lowest value:", minVal)  # Step 4
+print("Lowest value:", minVal)
 
 
 # =========================================
-# 4️⃣ SAME ALGORITHM USING INDEX LOOP
+# 5️⃣ SAME ALGORITHM USING INDEX LOOP
 # =========================================
 
 minVal = my_array[0]
@@ -72,21 +85,35 @@ print("Lowest value (using index loop):", minVal)
 
 
 # =========================================
-# 5️⃣ TIME COMPLEXITY
+# 6️⃣ TIME COMPLEXITY
 # =========================================
 
 """
-Time Complexity: O(n)
+TIME COMPLEXITY explains how the running time of an algorithm grows
+as the size of the input increases.
 
-Reason:
-The algorithm checks every element once.
-If there are n elements, the loop runs n times.
-So the time complexity is Linear → O(n)
+In the lowest value algorithm:
+- The loop runs once for each element.
+- If there are n elements, the loop runs n times.
+
+So, Time Complexity = O(n)  → Linear Time
+
+O(n) means:
+The time taken increases directly with the number of elements.
+
+-----------------------------------------
+COMMON TIME COMPLEXITIES
+-----------------------------------------
+
+O(1)   → Constant time (e.g., accessing my_array[0])
+O(n)   → Linear time (e.g., looping through an array)
+O(n²)  → Quadratic time (e.g., nested loops)
+O(log n) → Logarithmic time (e.g., binary search)
 """
 
 
 # =========================================
-# 6️⃣ COMMON ERRORS (FIXED)
+# 7️⃣ COMMON BEGINNER ERRORS (FIXED)
 # =========================================
 
 """
@@ -115,7 +142,7 @@ print("Lowest value:", minVal)
 
 
 # =========================================
-# 7️⃣ PRACTICE QUESTION
+# 8️⃣ PRACTICE QUESTION
 # =========================================
 
 """
@@ -126,3 +153,5 @@ my_array = [7, 12, 9, 4, 11]
 A:
 print(my_array[0])
 """
+
+print("Practice output:", my_array[0])
