@@ -1,0 +1,100 @@
+# ==========================================
+# 📘 BUBBLE SORT – THEORY (DSA)
+# ==========================================
+
+# ------------------------------------------
+# 📌 WHAT IS BUBBLE SORT?
+# ------------------------------------------
+# Bubble Sort is a simple sorting algorithm that sorts an array
+# in ascending order by repeatedly comparing adjacent elements
+# and swapping them if they are in the wrong order.
+#
+# The largest values gradually "bubble up" to the end of the array,
+# which is how the algorithm got its name.
+
+# ------------------------------------------
+# 📌 HOW BUBBLE SORT WORKS
+# ------------------------------------------
+# 1. Start from the first element of the array.
+# 2. Compare it with the next element.
+# 3. If the first element is greater than the next one, swap them.
+# 4. Move one step forward and repeat the comparison.
+# 5. After one full pass, the largest element reaches the end.
+# 6. Repeat the process for the remaining unsorted portion.
+# 7. Continue until the array becomes fully sorted.
+
+# ------------------------------------------
+# 📌 WHY IT IS CALLED "BUBBLE" SORT
+# ------------------------------------------
+# The largest values move step by step to the end of the array,
+# similar to how bubbles rise to the surface of water.
+
+# ------------------------------------------
+# 📌 NUMBER OF PASSES
+# ------------------------------------------
+# For an array of size n:
+# - The first pass places the largest element at the end.
+# - The second pass places the second-largest element.
+# - This continues until the smallest element reaches the start.
+# - Total passes required = n - 1
+
+# ------------------------------------------
+# 📌 TIME COMPLEXITY OF BUBBLE SORT
+# ------------------------------------------
+# Best Case    → O(n)
+#   - When the array is already sorted and we use an optimization
+#     that stops the algorithm if no swaps occur in a pass.
+#
+# Average Case → O(n²)
+#   - When elements are in random order.
+#
+# Worst Case   → O(n²)
+#   - When the array is sorted in reverse order.
+#
+# Reason:
+# - Bubble Sort uses two nested loops.
+# - Each element is compared with others multiple times.
+# - Total comparisons ≈ n × n = n².
+
+# ------------------------------------------
+# 📌 SPACE COMPLEXITY OF BUBBLE SORT
+# ------------------------------------------
+# Space Complexity → O(1) (Constant space)
+#
+# Reason:
+# - Bubble Sort sorts the array in-place.
+# - It does not create a new array.
+# - Only a few temporary variables are used for swapping.
+# - Extra memory does NOT grow with input size.
+
+# ------------------------------------------
+# 📌 WHY SPACE COMPLEXITY IS NOT O(n)
+# ------------------------------------------
+# Space complexity becomes O(n) only when:
+# - A new array or data structure of size n is created.
+#
+# Bubble Sort does NOT create any new array.
+# Therefore, extra memory remains constant → O(1).
+
+# ------------------------------------------
+# 📌 WHY WE FOCUS ON WORST-CASE TIME COMPLEXITY
+# ------------------------------------------
+# Although algorithms have best, average, and worst cases,
+# we usually focus on the worst case because:
+# - It guarantees performance in all situations.
+# - Best case is rare and unreliable.
+# - Average case depends on probability and is hard to calculate.
+
+# ------------------------------------------
+# 📌 INTERVIEW SUMMARY (ONE-LINERS)
+# ------------------------------------------
+# Bubble Sort is a simple comparison-based sorting algorithm.
+# It repeatedly swaps adjacent elements to sort the array.
+# Its time complexity is O(n²) in average and worst cases.
+# Its space complexity is O(1) because it sorts in-place.
+# We use worst-case complexity to ensure guaranteed performance.
+
+# ------------------------------------------
+# 🧩 PYTHON CODE -
+# ------------------------------------------
+# next day!
