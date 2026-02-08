@@ -1,7 +1,12 @@
 """
 =========================================
-DSA - ARRAYS (Complete Beginner Guide)
+DSA - ARRAYS + TIME COMPLEXITY + BIG-O
+(Beginner-Friendly Complete Guide)
 =========================================
+
+-------------------------------
+WHAT IS AN ARRAY?
+-------------------------------
 
 An array is a data structure used to store multiple values in a single variable.
 
@@ -10,9 +15,9 @@ In Python, we use a list as an array.
 Example:
 my_array = [7, 12, 9, 4, 11]
 
------------------------------------------
+-------------------------------
 ARRAY INDEXING
------------------------------------------
+-------------------------------
 
 Each element has an index (position).
 Python uses ZERO-BASED indexing.
@@ -22,6 +27,39 @@ Value:   7  12   9   4  11
 
 my_array[0] → 7
 my_array[3] → 4
+
+-----------------------------------------
+WHY ARRAYS ARE IMPORTANT
+-----------------------------------------
+
+- Store multiple values together
+- Easy to access using index
+- Used in almost all programs
+- Foundation for other data structures
+
+-----------------------------------------
+COMMON ARRAY OPERATIONS
+-----------------------------------------
+
+Access   → arr[i]
+Traversal → Loop through array
+Searching → Find a value
+Insertion → Add a value
+Deletion → Remove a value
+
+-----------------------------------------
+ARRAY TIME COMPLEXITIES
+-----------------------------------------
+
+Access      → O(1)
+Traversal   → O(n)
+Searching   → O(n)
+Insertion   → O(n)
+Deletion    → O(n)
+
+-----------------------------------------
+EXAMPLE ARRAY
+-----------------------------------------
 """
 
 # =========================================
@@ -36,21 +74,52 @@ print("Original array:", my_array)
 # 2️⃣ ACCESSING ELEMENTS
 # =========================================
 
-print("First element:", my_array[0])
-print("Fourth element:", my_array[3])
+print("First element:", my_array[0])   # O(1)
+print("Fourth element:", my_array[3])  # O(1)
 
 
 # =========================================
-# 3️⃣ LOOPING THROUGH AN ARRAY
+# 3️⃣ TRAVERSING THE ARRAY
 # =========================================
 
-print("All elements:")
+print("Traversing the array:")
 for i in my_array:
-    print(i)
+    print(i)  # O(n)
 
 
 # =========================================
-# 4️⃣ ALGORITHM: FIND THE LOWEST VALUE
+# 4️⃣ SEARCHING IN ARRAY
+# =========================================
+
+search_value = 9
+found = False
+
+for i in my_array:
+    if i == search_value:
+        found = True
+        break
+
+print("Is 9 in array?", found)  # O(n)
+
+
+# =========================================
+# 5️⃣ INSERTION IN ARRAY
+# =========================================
+
+my_array.insert(2, 99)  # Insert at index 2
+print("After insertion:", my_array)  # O(n)
+
+
+# =========================================
+# 6️⃣ DELETION FROM ARRAY
+# =========================================
+
+my_array.pop(3)  # Remove element at index 3
+print("After deletion:", my_array)  # O(n)
+
+
+# =========================================
+# 7️⃣ ALGORITHM: FIND THE LOWEST VALUE
 # =========================================
 
 """
@@ -68,90 +137,117 @@ for i in my_array:
     if i < minVal:
         minVal = i
 
-print("Lowest value:", minVal)
+print("Lowest value:", minVal)  # O(n)
 
 
 # =========================================
-# 5️⃣ SAME ALGORITHM USING INDEX LOOP
-# =========================================
-
-minVal = my_array[0]
-
-for i in range(1, len(my_array)):
-    if my_array[i] < minVal:
-        minVal = my_array[i]
-
-print("Lowest value (using index loop):", minVal)
-
-
-# =========================================
-# 6️⃣ TIME COMPLEXITY
+# 8️⃣ TIME COMPLEXITY & BIG-O NOTATION
 # =========================================
 
 """
-TIME COMPLEXITY explains how the running time of an algorithm grows
-as the size of the input increases.
+Time Complexity tells us how the running time of an algorithm grows
+as the input size (n) increases.
 
-In the lowest value algorithm:
-- The loop runs once for each element.
-- If there are n elements, the loop runs n times.
+It does NOT measure time in seconds.
+It measures how the number of operations increases.
 
-So, Time Complexity = O(n)  → Linear Time
+-----------------------------------------
+WHAT IS BIG-O NOTATION?
+-----------------------------------------
 
-O(n) means:
-The time taken increases directly with the number of elements.
+Big-O notation represents the worst-case time complexity of an algorithm.
+
+-----------------------------------------
+IGNORE THESE IN FORMULAS:
+-----------------------------------------
+
+Given a formula:
+3n² + 5n + 2
+
+We ignore:
+- Constants → 2
+- Coefficients → 3, 5
+- Smaller terms → 5n
+
+We keep:
+- Highest power of n → n²
+
+So:
+Time Complexity = O(n²)
 
 -----------------------------------------
 COMMON TIME COMPLEXITIES
 -----------------------------------------
 
-O(1)   → Constant time (e.g., accessing my_array[0])
-O(n)   → Linear time (e.g., looping through an array)
-O(n²)  → Quadratic time (e.g., nested loops)
-O(log n) → Logarithmic time (e.g., binary search)
+O(1)     → Constant time
+O(log n) → Logarithmic time
+O(n)     → Linear time
+O(n log n) → Linearithmic time
+O(n²)    → Quadratic time
+O(n³)    → Cubic time
+O(2ⁿ)    → Exponential time
+O(n!)    → Factorial time
+
+-----------------------------------------
+HOW TO IDENTIFY TIME COMPLEXITY FROM CODE
+-----------------------------------------
+
+No loop → O(1)
+One loop → O(n)
+Two nested loops → O(n²)
+Loop that halves input → O(log n)
+Recursive with 2 calls → O(2ⁿ)
 """
 
 
 # =========================================
-# 7️⃣ COMMON BEGINNER ERRORS (FIXED)
+# 9️⃣ CODE EXAMPLES FOR TIME COMPLEXITY
 # =========================================
 
-"""
-❌ Wrong:
-print("original array:", my my_array)
-
-✅ Correct:
-print("original array:", my_array)
-
---------------------------------------
-
-❌ Wrong:
-for i in range(1, len(my_array):
-
-✅ Correct:
-for i in range(1, len(my_array)):
-
---------------------------------------
-
-❌ Wrong:
-print("Lowest value:", minVal))
-
-✅ Correct:
-print("Lowest value:", minVal)
-"""
-
-
-# =========================================
-# 8️⃣ PRACTICE QUESTION
-# =========================================
-
-"""
-Q: How do we print value 7 from this array?
-
-my_array = [7, 12, 9, 4, 11]
-
-A:
+# O(1) — CONSTANT TIME
 print(my_array[0])
-"""
 
-print("Practice output:", my_array[0])
+
+# O(n) — LINEAR TIME
+for i in my_array:
+    print(i)
+
+
+# O(n²) — QUADRATIC TIME
+for i in my_array:
+    for j in my_array:
+        print(i, j)
+
+
+# O(log n) — LOGARITHMIC TIME
+n = 64
+while n > 1:
+    print(n)
+    n = n // 2
+
+
+# O(2ⁿ) — EXPONENTIAL TIME
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+print("Fibonacci of 5:", fibonacci(5))
+
+
+# =========================================
+# 10️⃣ SUMMARY
+# =========================================
+
+"""
+- Array is a data structure used to store multiple values.
+- Elements are accessed using zero-based indexing.
+- Array operations have different time complexities.
+- Time complexity applies to both algorithms and data structures.
+- Big-O notation helps us choose the most efficient algorithm.
+- Always ignore constants and smaller terms.
+
+=========================================
+END OF FILE
+=========================================
+"""
