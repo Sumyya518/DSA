@@ -58,3 +58,5 @@ def selection_sort(arr):
 
 my_array = [7, 12, 9, 11, 3]
 print("Sorted array:", selection_sort(my_array))
+
+end!
