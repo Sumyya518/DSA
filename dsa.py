@@ -1,0 +1,45 @@
+# # Arrays
+
+# # Step 1: Create the array
+# my_array = [7, 12, 9, 4, 11]
+# print("Original array:", my_array)
+
+# # Step 2: Access an element (index 3)
+# print(my_array[3])  # Output will be 4
+
+# # Step 3: Find the minimum value
+# minVal = my_array[0]  # Step 1
+
+# for i in my_array:    # Step 2
+#     # if i < minVal:    # Step 3
+#         minVal = i
+
+# print("Lowest value:", minVal)  # Step 4
+
+# # bubble sort
+
+# def bubble (arr1):
+#     n = len (arr1)
+#     for i in range (n):
+#         swapped = False
+#         for j in range (0, n-1-1):
+#             if arr1[j] > arr1[j+1]:
+#                 arr1[j], arr1[j+1] = arr1[j+1], arr1[j]
+#                 swapped = True
+#         if not swapped:
+#             break
+# arr1 = [64, 34, 25, 12, 22, 11, 90]
+# bubble(arr1)
+# print("Sorted array is:", arr1)
+
+# # selection sort
+# my_array = [64, 34, 25, 5, 22, 11, 90, 12]
+# n = len(my_array)
+# for i in range(n-1):
+#     min_index = i
+#     for j in range(i+1, n):
+#         if my_array[j] < my_array[min_index]:
+#             min_index = j
+#     min_value = my_array.pop(min_index)
+#     my_array.insert(i, min_value)
+# print("Sorted array:", my_array)
