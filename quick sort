@@ -1,0 +1,68 @@
+"""
+QUICK SORT (DSA) — ALL IN ONE PAGE
+
+Quick Sort is a fast sorting algorithm based on the divide-and-conquer technique.
+
+HOW IT WORKS:
+1. Choose the first element as the pivot.
+2. Move all smaller elements to the left of the pivot.
+3. Move all larger elements to the right of the pivot.
+4. Place the pivot in its correct position.
+5. Recursively apply the same steps to left and right sub-arrays.
+6. Continue until all sub-arrays have size 0 or 1.
+
+EXAMPLE:
+Initial array:
+[11, 9, 12, 7, 3]
+
+Pivot = 11
+After partition:
+[7, 9, 3, 11, 12]
+
+Then sort left part [7, 9, 3] and right part [12]
+Final result:
+[3, 7, 9, 11, 12]
+
+TIME COMPLEXITY:
+Best Case:    O(n log n)
+Average Case: O(n log n)
+Worst Case:   O(n²)
+
+SPACE COMPLEXITY:
+O(log n) due to recursion stack.
+"""
+
+# -------------------------------
+# QUICK SORT CODE (IMAGE STYLE)
+# -------------------------------
+
+def partition(arr, low, high):
+    p = arr[low]      # pivot (first element)
+    i = low + 1
+    j = high
+
+    while True:
+        while i <= j and arr[i] <= p:
+            i += 1
+        while i <= j and arr[j] >= p:
+            j -= 1
+        if i <= j:
+            arr[i], arr[j] = arr[j], arr[i]
+        else:
+            break
+
+    arr[low], arr[j] = arr[j], arr[low]
+    return j
+
+
+def quick_sort(arr, low, high):
+    if low < high:
+        pivot = partition(arr, low, high)
+        quick_sort(arr, low, pivot - 1)
+        quick_sort(arr, pivot + 1, high)
+
+arr = [5, 8, 1, 2, 6, 3, 9]
+quick_sort(arr, 0, len(arr) - 1)
+print("Sorted array:", arr)
+
+end!
