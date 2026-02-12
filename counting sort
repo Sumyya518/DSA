@@ -1,0 +1,46 @@
+"""
+Counting Sort Implementation
+
+"""
+
+def counting_sort(arr):
+    """
+    Sorts a list of non-negative integers using Counting Sort.
+    
+    Time Complexity: O(n + k)
+    Space Complexity: O(k)
+    
+    n = number of elements
+    k = range of values (max_value + 1)
+    """
+    
+    # Edge case
+    if not arr:
+        return arr
+
+    # Step 1: Find maximum value
+    max_val = max(arr)
+
+    # Step 2: Create count array
+    count = [0] * (max_val + 1)
+
+    # Step 3: Count frequency
+    for num in arr:
+        count[num] += 1
+
+    # Step 4: Build sorted array
+    sorted_array = []
+    for value, frequency in enumerate(count):
+        sorted_array.extend([value] * frequency)
+
+    return sorted_array
+
+
+# ==========================
+# Example Run
+# ==========================
+if __name__ == "__main__":
+    arr = [2, 3, 0, 2, 3, 2]
+    
+    print("Original Array:", arr)
+    print("Sorted Array:", counting_sort(arr))
