@@ -59,22 +59,6 @@ def binary_search(array, target):
     return -1
 
 
-# =========================
-# Example Run
-# =========================
-if __name__ == "__main__":
-    
-    arr = [10, 20, 30, 40, 50]
-    target = 40
-    
-    print("Array:", arr)
-    
-    print("\nLinear Search Result:")
-    print(linear_search(arr, target))
-    
-    print("\nBinary Search Result:")
-    print(binary_search(arr, target))
-
 # Search Algorithms (Linear + Binary)
 
 This repository contains implementation of:
