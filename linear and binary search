@@ -1,0 +1,105 @@
+"""
+Search Algorithms Repository
+Contains:
+1. Linear Search
+2. Binary Search (Iterative)
+"""
+
+# =========================
+# 1️⃣ Linear Search
+# =========================
+def linear_search(array, target):
+    """
+    Searches element one by one from left to right.
+    
+    Time Complexity:
+    Best Case  : O(1)
+    Worst Case : O(n)
+    
+    Space Complexity: O(1)
+    """
+    
+    for i in range(len(array)):
+        if array[i] == target:
+            return i
+    
+    return -1
+
+
+# =========================
+# 2️⃣ Binary Search
+# =========================
+def binary_search(array, target):
+    """
+    Works only on sorted arrays.
+    
+    Time Complexity:
+    Best Case  : O(1)
+    Worst Case : O(log n)
+    
+    Space Complexity: O(1)
+    """
+    
+    left = 0
+    right = len(array) - 1
+    
+    while left <= right:
+        
+        mid = (left + right) // 2
+        
+        if array[mid] == target:
+            return mid
+        
+        elif array[mid] < target:
+            left = mid + 1
+        
+        else:
+            right = mid - 1
+    
+    return -1
+
+
+# =========================
+# Example Run
+# =========================
+if __name__ == "__main__":
+    
+    arr = [10, 20, 30, 40, 50]
+    target = 40
+    
+    print("Array:", arr)
+    
+    print("\nLinear Search Result:")
+    print(linear_search(arr, target))
+    
+    print("\nBinary Search Result:")
+    print(binary_search(arr, target))
+
+# Search Algorithms (Linear + Binary)
+
+This repository contains implementation of:
+
+1. Linear Search
+2. Binary Search (Iterative)
+
+------------------------------------
+
+Linear Search:
+- Works on unsorted arrays
+- Checks element one by one
+- Time Complexity: O(n)
+
+Binary Search:
+- Works only on sorted arrays
+- Divides array into halves
+- Time Complexity: O(log n)
+
+------------------------------------
+
+Example:
+Array = [10, 20, 30, 40, 50]
+Target = 40
+
+Output:
+Linear  -> 3
+Binary  -> 3
