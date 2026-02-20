@@ -1,1 +1,28 @@
-soon...
+# Introduction to Linked List
+
+A **Linked List** is a linear data structure where elements are stored in separate objects called **nodes**. 
+Unlike arrays, linked list elements are not stored in contiguous memory locations.
+
+Each node contains:
+- **Data** – the value stored in the node
+- **Next pointer** – reference to the next node
+
+The first node is called the **head**. 
+The last node points to `None`, which indicates the end of the list.
+
+## Why Use Linked List?
+
+- Dynamic size (can grow or shrink)
+- Easy insertion and deletion
+- Does not require continuous memory
+
+## Limitations
+
+- No direct indexing like arrays
+- Extra memory needed for pointers
+
+## Types of Linked List
+
+1. Singly Linked List
+2. Doubly Linked List
+3. Circular Linked List
