@@ -26,3 +26,214 @@ The last node points to `None`, which indicates the end of the list.
 1. Singly Linked List
 2. Doubly Linked List
 3. Circular Linked List
+
+
+---
+
+# 🧠 Memory Representation
+
+
+::contentReference[oaicite:0]{index=0}
+
+
+---
+
+# 📄 linked_list.py (Complete Professional Code)
+
+```python
+"""
+===========================================
+LINKED LIST COMPLETE IMPLEMENTATION (PYTHON)
+===========================================
+Covers:
+- Singly Linked List
+- Doubly Linked List
+- Circular Linked List
+- All Basic Operations
+- Reverse
+- Interview Ready
+===========================================
+"""
+
+# ===========================================
+# Singly Linked List
+# ===========================================
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class SinglyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_beginning(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def insert_end(self, data):
+        new_node = Node(data)
+
+        if not self.head:
+            self.head = new_node
+            return
+
+        current = self.head
+        while current.next:
+            current = current.next
+
+        current.next = new_node
+
+    def delete_value(self, value):
+        current = self.head
+
+        if current and current.data == value:
+            self.head = current.next
+            return
+
+        prev = None
+        while current and current.data != value:
+            prev = current
+            current = current.next
+
+        if current:
+            prev.next = current.next
+
+    def search(self, key):
+        position = 0
+        current = self.head
+
+        while current:
+            if current.data == key:
+                return position
+            current = current.next
+            position += 1
+
+        return -1
+
+    def reverse(self):
+        prev = None
+        current = self.head
+
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+
+        self.head = prev
+
+    def display(self):
+        current = self.head
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
+
+
+# ===========================================
+# Doubly Linked List
+# ===========================================
+
+class DNode:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_beginning(self, data):
+        new_node = DNode(data)
+
+        if self.head:
+            self.head.prev = new_node
+            new_node.next = self.head
+
+        self.head = new_node
+
+    def display_forward(self):
+        current = self.head
+        while current:
+            print(current.data, end=" <-> ")
+            current = current.next
+        print("None")
+
+
+# ===========================================
+# Circular Linked List
+# ===========================================
+
+class CNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class CircularLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert(self, data):
+        new_node = CNode(data)
+
+        if not self.head:
+            self.head = new_node
+            new_node.next = self.head
+            return
+
+        current = self.head
+        while current.next != self.head:
+            current = current.next
+
+        current.next = new_node
+        new_node.next = self.head
+
+    def display(self):
+        if not self.head:
+            return
+
+        current = self.head
+        while True:
+            print(current.data, end=" -> ")
+            current = current.next
+            if current == self.head:
+                break
+        print("(back to head)")
+
+
+# ===========================================
+# Example Usage
+# ===========================================
+
+if __name__ == "__main__":
+
+    print("SINGLY LINKED LIST")
+    sll = SinglyLinkedList()
+    sll.insert_end(10)
+    sll.insert_end(20)
+    sll.insert_end(30)
+    sll.display()
+
+    sll.reverse()
+    print("After Reverse:")
+    sll.display()
+
+    print("\nDOUBLY LINKED LIST")
+    dll = DoublyLinkedList()
+    dll.insert_beginning(5)
+    dll.insert_beginning(10)
+    dll.display_forward()
+
+    print("\nCIRCULAR LINKED LIST")
+    cll = CircularLinkedList()
+    cll.insert(1)
+    cll.insert(2)
+    cll.insert(3)
+    cll.display()
