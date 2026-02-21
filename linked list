@@ -57,3 +57,33 @@ def main():
     print("None")
 
 if __name__ == "__main__":    main()
+
+## Traversing
+
+# 1. The Blueprint (The Class)
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+# 2. Creating the actual Nodes (The Bricks)
+# This is where 'node1' gets defined!
+node1 = Node(10)
+node2 = Node(20)
+node3 = Node(30)
+
+# 3. Linking them together (The Chain)
+node1.next = node2
+node2.next = node3
+
+# 4. Your Traversal Logic (The Walk)
+head = node1  # Now node1 exists, so this works!
+current = head
+
+
+
+while current is not None:
+    print(current.data, end=" -> ")
+    current = current.next  # This moves the pointer to the next address
+    
+print("None")
