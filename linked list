@@ -80,8 +80,6 @@ node2.next = node3
 head = node1  # Now node1 exists, so this works!
 current = head
 
-
-
 while current is not None:
     print(current.data, end=" -> ")
     current = current.next  # This moves the pointer to the next address
