@@ -1,0 +1,164 @@
+"""
+==============================
+            STACK 
+==============================
+
+Stack = LIFO (Last In First Out)
+Think of a stack like a pile of plates.
+
+Basic Operations:
+- push(x)       → Add element on top
+- pop()         → Remove top element
+- peek()        → View top element
+- is_empty()    → Check if stack is empty
+- size()        → Number of elements
+"""
+
+# -----------------------------
+# 1️⃣ Simple Stack using Python List
+# -----------------------------
+print("\n--- Simple Stack using List ---")
+stack = []
+
+# Push
+stack.append(10)
+stack.append(20)
+stack.append(30)
+
+# Pop
+print("Pop:", stack.pop())  # 30
+
+# Peek
+print("Peek:", stack[-1])   # 20
+
+# isEmpty
+print("Is Empty:", len(stack)==0)  # False
+
+# Size
+print("Size:", len(stack))  # 2
+
+# -----------------------------
+# 2️⃣ Stack using Class (Array)
+# -----------------------------
+print("\n--- Stack using Class (Array) ---")
+
+class StackClass:
+    def __init__(self):
+        self.items = []
+
+    def push(self, value):
+        self.items.append(value)
+
+    def pop(self):
+        if self.is_empty():
+            return "Stack is empty"
+        return self.items.pop()
+
+    def peek(self):
+        if self.is_empty():
+            return "Stack is empty"
+        return self.items[-1]
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+# Testing
+s_class = StackClass()
+s_class.push(1)
+s_class.push(2)
+s_class.push(3)
+
+print("Pop:", s_class.pop())
+print("Peek:", s_class.peek())
+print("Size:", s_class.size())
+
+# -----------------------------
+# 3️⃣ Stack using Linked List
+# -----------------------------
+print("\n--- Stack using Linked List ---")
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class StackLinkedList:
+    def __init__(self):
+        self.head = None
+        self.count = 0
+
+    def push(self, value):
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+        self.count += 1
+
+    def pop(self):
+        if self.is_empty():
+            return "Stack is empty"
+        removed = self.head
+        self.head = self.head.next
+        self.count -= 1
+        return removed.value
+
+    def peek(self):
+        if self.is_empty():
+            return "Stack is empty"
+        return self.head.value
+
+    def is_empty(self):
+        return self.count == 0
+
+    def size(self):
+        return self.count
+
+# Testing
+s_ll = StackLinkedList()
+s_ll.push(10)
+s_ll.push(20)
+s_ll.push(30)
+
+print("Pop:", s_ll.pop())
+print("Peek:", s_ll.peek())
+print("Size:", s_ll.size())
+
+# -----------------------------
+# 4️⃣ Example Problem: Balanced Parentheses
+# -----------------------------
+print("\n--- Balanced Parentheses Example ---")
+
+def is_balanced(expression):
+    stack = []
+
+    for char in expression:
+        if char == "(":
+            stack.append(char)
+        elif char == ")":
+            if not stack:
+                return False
+            stack.pop()
+    return len(stack) == 0
+
+# Testing
+expr1 = "(())"
+expr2 = "(()"
+expr3 = "()()"
+
+print(expr1, "Balanced?" , is_balanced(expr1))
+print(expr2, "Balanced?" , is_balanced(expr2))
+print(expr3, "Balanced?" , is_balanced(expr3))
+
+# -----------------------------
+# ✅ Quick Notes
+# -----------------------------
+"""
+1. Stack = LIFO
+2. Python list = easiest stack
+3. Class version = interview-friendly
+4. Linked list version = dynamic & memory-efficient
+5. 5 basic methods: push, pop, peek, is_empty, size
+6. Real uses: Undo/Redo, Browser buttons, Expression evaluation, DFS, Backtracking
+"""
