@@ -90,3 +90,10 @@ if __name__ == "__main__":
     print("Dequeue:", queue.dequeue())
     print("After dequeue:", queue.peek())
     print("Is Empty:", queue.is_empty())
+
+# Output 
+Queue size: 3
+Front element: 10
+Dequeue: 10
+After dequeue: 20
+Is Empty: False
