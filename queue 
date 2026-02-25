@@ -1,0 +1,92 @@
+"""
+📘 QUEUE (FIFO)
+
+Definition:
+Queue is a linear data structure that follows FIFO (First In First Out).
+The element inserted first will be removed first.
+
+Example:
+Insert: 10, 20, 30
+Removal Order: 10 → 20 → 30
+
+Real-Life Examples:
+- Ticket counter line
+- Printer queue
+- Call waiting system
+
+Basic Operations:
+1. enqueue()  -> Add element at rear
+2. dequeue()  -> Remove element from front
+3. peek()     -> View front element
+4. is_empty() -> Check if queue is empty
+5. size()     -> Get total number of elements
+
+Why deque?
+We use: from collections import deque
+
+Because:
+- append()   -> O(1)
+- popleft()  -> O(1)
+
+If we use list:
+- pop(0) -> O(n) (slow)
+
+Time Complexity:
+enqueue() -> O(1)
+dequeue() -> O(1)
+peek()    -> O(1)
+"""
+
+# Import deque for fast operations
+from collections import deque
+
+
+# Create Queue class
+class Queue:
+
+    # Constructor runs automatically when object is created
+    def __init__(self):
+        # Create empty deque to store elements
+        self.q = deque()
+
+    # Add element at rear
+    def enqueue(self, value):
+        self.q.append(value)   # append adds element at end
+
+    # Remove element from front
+    def dequeue(self):
+        if not self.q:        # Check if queue is empty
+            return "Queue is empty"
+        return self.q.popleft()  # Remove front element
+
+    # View front element
+    def peek(self):
+        if not self.q:
+            return "Queue is empty"
+        return self.q[0]      # First element is front
+
+    # Check if queue is empty
+    def is_empty(self):
+        return len(self.q) == 0
+
+    # Return total number of elements
+    def size(self):
+        return len(self.q)
+
+
+# -------------------------
+# Testing the Queue
+# -------------------------
+if __name__ == "__main__":
+
+    queue = Queue()      # Create object
+
+    queue.enqueue(10)    # Insert 10
+    queue.enqueue(20)    # Insert 20
+    queue.enqueue(30)    # Insert 30
+
+    print("Queue size:", queue.size())
+    print("Front element:", queue.peek())
+    print("Dequeue:", queue.dequeue())
+    print("After dequeue:", queue.peek())
+    print("Is Empty:", queue.is_empty())
