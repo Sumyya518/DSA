@@ -1,0 +1,176 @@
+"""
+===========================================================
+ HASHING
+===========================================================
+
+1️⃣ What is Hashing?
+-----------------------------------------------------------
+Hashing is a technique that converts a key into an index
+number using a hash function.
+
+Key → Hash Function → Index → Store in Array
+
+Example:
+"cat" → hash("cat") → 345678 → 345678 % 5 = 3
+So value is stored at index 3.
+
+
+2️⃣ What is a Hash Table?
+-----------------------------------------------------------
+A hash table is:
+- An array (list)
+- A hash function
+- A collision handling method
+
+In Python:
+dict  = HashMap
+set   = HashSet
+
+
+3️⃣ What is Index?
+-----------------------------------------------------------
+Index = position number in a list.
+
+Example:
+arr = [10, 20, 30]
+
+Index:   0    1    2
+Value:  10   20   30
+
+arr[1] → 20
+
+Output:
+20
+
+
+4️⃣ Simple Hash Table Example (Without Class)
+-----------------------------------------------------------
+# Create table of size 5
+table = [[] for _ in range(5)]
+
+# Insert key-value pair
+key = "cat"
+value = 50
+
+index = hash(key) % 5
+table[index].append([key, value])
+
+print(table)
+
+Example Output (index may vary):
+[[], [], [['cat', 50]], [], []]
+
+
+5️⃣ Collision
+-----------------------------------------------------------
+Collision happens when two keys get same index.
+
+Example:
+hash("cat") % 5 = 2
+hash("dog") % 5 = 2
+
+Both go to index 2.
+
+We solve it using CHAINING:
+Store both inside same list.
+
+Example After Inserting Both:
+[[], [], [['cat', 50], ['dog', 80]], [], []]
+
+
+6️⃣ Searching in Hash Table
+-----------------------------------------------------------
+search_key = "cat"
+index = hash(search_key) % 5
+
+for pair in table[index]:
+    if pair[0] == search_key:
+        print("Found:", pair[1])
+
+Output:
+Found: 50
+
+
+7️⃣ Python Dictionary (Real Hash Table)
+-----------------------------------------------------------
+d = {}
+
+d["cat"] = 50
+d["dog"] = 80
+
+print(d["cat"])
+
+Output:
+50
+
+
+8️⃣ Python Set (HashSet)
+-----------------------------------------------------------
+s = set()
+
+s.add(10)
+s.add(20)
+s.add(10)  # duplicate ignored
+
+print(s)
+
+Output:
+{10, 20}
+
+
+9️⃣ Time Complexity
+-----------------------------------------------------------
+Operation      Average Time
+Insert         O(1)
+Search         O(1)
+Delete         O(1)
+
+Worst case     O(n)  (if many collisions)
+
+
+🔟 Hashable Types
+-----------------------------------------------------------
+Allowed as keys:
+✔ int
+✔ float
+✔ string
+✔ tuple (immutable)
+
+Not allowed:
+❌ list
+❌ dict
+❌ set
+
+Because mutable objects cannot be hashed.
+
+
+1️⃣1️⃣ Why Hashing is Important?
+-----------------------------------------------------------
+Without hashing:
+Search in list = O(n)
+
+With hashing:
+Search in dict = O(1)
+
+Used in:
+- Databases
+- Caching
+- Compilers
+- Password storage
+- Blockchain
+
+
+===========================================================
+🎯 FINAL SUMMARY
+-----------------------------------------------------------
+Hashing = Smart way to jump directly to data.
+
+Index = position in array.
+Collision = two keys same index.
+dict = HashMap.
+set = HashSet.
+Average time = O(1).
+
+If you understand this, you understand hashing.
+===========================================================
+"""
