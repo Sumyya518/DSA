@@ -1,0 +1,185 @@
+# 🌳 Trees Mastery Repository (Beginner → Interview → AI)
+
+This repository is for students who:
+- Understand tree concepts
+- Struggle to write code alone
+- Want interview confidence
+- Want AI / LLM understanding
+
+---
+
+# 📌 1️⃣ What is a Tree?
+
+A Tree is a hierarchical data structure.
+
+Example:
+
+        5
+       / \
+      2   8
+
+Root = 5  
+Left child = 2  
+Right child = 8  
+
+---
+
+# 📌 2️⃣ Step 1: Create a Node (Basic Building Block)
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+```
+
+Every node stores:
+- data
+- left child
+- right child
+
+---
+
+# 📌 3️⃣ Step 2: Manually Build a Tree
+
+```python
+root = Node(5)
+root.left = Node(2)
+root.right = Node(8)
+
+print(root.data)
+print(root.left.data)
+print(root.right.data)
+```
+
+### Output:
+```
+5
+2
+8
+```
+
+You just created a tree manually.
+
+---
+
+# 📌 4️⃣ Tree Traversals (Most Important for Interviews)
+
+## 🔹 Preorder (Root → Left → Right)
+
+```python
+def preorder(node):
+    if node:
+        print(node.data, end=" ")
+        preorder(node.left)
+        preorder(node.right)
+
+preorder(root)
+```
+
+Output:
+```
+5 2 8
+```
+
+---
+
+## 🔹 Inorder (Left → Root → Right)
+
+```python
+def inorder(node):
+    if node:
+        inorder(node.left)
+        print(node.data, end=" ")
+        inorder(node.right)
+
+inorder(root)
+```
+
+Output:
+```
+2 5 8
+```
+
+👉 In BST, inorder gives sorted output.
+
+---
+
+## 🔹 Postorder (Left → Right → Root)
+
+```python
+def postorder(node):
+    if node:
+        postorder(node.left)
+        postorder(node.right)
+        print(node.data, end=" ")
+
+postorder(root)
+```
+
+Output:
+```
+2 8 5
+```
+
+---
+
+# 📌 5️⃣ Height of Tree
+
+```python
+def height(node):
+    if node is None:
+        return 0
+    return 1 + max(height(node.left), height(node.right))
+
+print(height(root))
+```
+
+Output:
+```
+2
+```
+
+---
+
+# 📌 6️⃣ Binary Search Tree (BST)
+
+BST Rule:
+Left < Root < Right
+
+Example:
+        5
+       / \
+      2   8
+
+---
+
+## Search in BST
+
+```python
+def search(node, key):
+    if node is None or node.data == key:
+        return node
+    
+    if key < node.data:
+        return search(node.left, key)
+    else:
+        return search(node.right, key)
+
+result = search(root, 8)
+
+if result:
+    print("Found")
+else:
+    print("Not Found")
+```
+
+Output:
+```
+Found
+```
+
+Time Complexity: O(log n)
+
+---
