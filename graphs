@@ -1,0 +1,279 @@
+# Graph
+
+This page explains the basic concepts of graphs and the first two traversal algorithms used in Data Structures and Algorithms (DSA).
+
+---
+
+# 1. Graph
+
+A **Graph** is a non-linear data structure used to represent relationships between objects.
+
+A graph consists of:
+
+- **Vertices (Nodes)** → the objects or points
+- **Edges** → connections between vertices
+
+Example:
+
+A ----- B  
+|       |  
+C ----- D  
+
+Vertices = A, B, C, D  
+Edges = (A,B), (A,C), (B,D), (C,D)
+
+Graphs are widely used in:
+
+- Social networks
+- Google Maps routing
+- Computer networks
+- Recommendation systems
+
+---
+
+# Types of Graphs
+
+## Directed Graph
+
+Edges have direction.
+
+Example:
+
+A → B
+
+This means movement is only from A to B.
+
+Used in:
+- Task scheduling
+- Website links
+
+---
+
+## Undirected Graph
+
+Edges have no direction.
+
+Example:
+
+A — B
+
+Both A → B and B → A are possible.
+
+Used in:
+- Friend connections
+- Road networks
+
+---
+
+## Weighted Graph
+
+Edges have weights (cost, distance, time).
+
+Example:
+
+A ---5--- B
+
+The weight between A and B is 5.
+
+Used in:
+- Navigation systems
+- Network routing
+
+---
+
+## Unweighted Graph
+
+Edges do not have weights.
+
+All edges are considered equal.
+
+---
+
+# 2. Graph Representation
+
+Graphs can be stored in memory in two main ways.
+
+---
+
+## Adjacency Matrix
+
+An **Adjacency Matrix** is a 2D array used to represent a graph.
+
+Each row and column represent vertices.
+
+Example:
+
+      A  B  C
+A     0  1  1
+B     1  0  1
+C     1  1  0
+
+Meaning:
+
+- 1 → Edge exists
+- 0 → No edge
+
+Advantages:
+
+- Very fast edge lookup
+- Simple representation
+
+Disadvantages:
+
+- Uses more memory
+- Not efficient for large graphs
+
+---
+
+## Adjacency List
+
+An **Adjacency List** stores each vertex and its neighbors.
+
+Example:
+
+A → B, C  
+B → A, D  
+C → A  
+D → B  
+
+Advantages:
+
+- Uses less memory
+- Efficient for large graphs
+
+Disadvantages:
+
+- Edge lookup takes slightly longer than matrix
+
+Most real-world graph algorithms use **Adjacency Lists**.
+
+---
+
+# 3. Breadth First Search (BFS)
+
+**Breadth First Search (BFS)** is a graph traversal algorithm.
+
+It visits nodes **level by level** starting from a source node.
+
+Traversal pattern:
+
+Level 1 → Level 2 → Level 3
+
+Example graph:
+
+        A
+       / \
+      B   C
+     /     \
+    D       E
+
+BFS traversal:
+
+A → B → C → D → E
+
+---
+
+## BFS Characteristics
+
+- Uses a **Queue (FIFO)** data structure
+- Visits all neighbors first before going deeper
+- Prevents revisiting nodes using a **visited set**
+
+---
+
+## BFS Applications
+
+- Finding shortest path in **unweighted graphs**
+- Web crawling
+- Network broadcasting
+- Social network analysis
+
+---
+
+## BFS Time Complexity
+
+Time Complexity:
+
+O(V + E)
+
+Where:
+
+V = number of vertices  
+E = number of edges
+
+---
+
+# 4. Depth First Search (DFS)
+
+**Depth First Search (DFS)** is another graph traversal algorithm.
+
+Instead of exploring level by level, DFS **goes deep into a path before backtracking**.
+
+Traversal pattern:
+
+Deep → Backtrack → Deep
+
+Example graph:
+
+        A
+       / \
+      B   C
+     /
+    D
+
+DFS traversal:
+
+A → B → D → C
+
+---
+
+## DFS Characteristics
+
+- Uses a **Stack** or **Recursion**
+- Explores one branch completely before moving to another
+- Uses a **visited set** to avoid cycles
+
+---
+
+## DFS Applications
+
+- Cycle detection
+- Topological sorting
+- Maze solving
+- Path finding
+- Connected components
+
+---
+
+## DFS Time Complexity
+
+Time Complexity:
+
+O(V + E)
+
+Where:
+
+V = number of vertices  
+E = number of edges
+
+---
+
+# Summary
+
+Graph traversal algorithms are fundamental in computer science.
+
+Key points:
+
+- Graph = vertices + edges
+- Two representations → adjacency matrix and adjacency list
+- BFS explores **level by level**
+- DFS explores **deep first**
+- Both BFS and DFS have time complexity **O(V + E)**
+
+These concepts form the foundation for advanced algorithms like:
+
+- Dijkstra
+- A*
+- Kruskal
+- Prim
+- Bellman-Ford
